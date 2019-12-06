@@ -1,5 +1,4 @@
-extends Node
-class_name Server
+extends "res://game/Game.gd"
 
 func _ready():
 	if not ServerNetwork.host_game():

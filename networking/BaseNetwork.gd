@@ -1,5 +1,7 @@
 extends Node
 
+signal remove_player
+
 const SERVER_PORT := 3000
 const MAX_PLAYERS := 15
 
@@ -13,6 +15,7 @@ func _player_disconnected(id):
 	print("Player disconnected: " + str(id))
 	GameData.players.erase(id)
 	
+	emit_signal("remove_player", id)
 	print("Total players: %d" % GameData.players.size())
 
 # Completely reset the game state and clear the network

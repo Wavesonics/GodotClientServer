@@ -1,4 +1,4 @@
-extends ClientBase
+extends "res://game/Game.gd"
 
 func _ready():
 	print("Client 2d setup")

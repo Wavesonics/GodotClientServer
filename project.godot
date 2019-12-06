@@ -8,20 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "ClientBase",
-"language": "GDScript",
-"path": "res://clients/ClientBase.gd"
-}, {
-"base": "Node",
-"class": "Server",
-"language": "GDScript",
-"path": "res://server/Server.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"ClientBase": "",
-"Server": ""
+
 }
 
 [application]
@@ -35,6 +24,11 @@ config/icon="res://icon.png"
 ClientNetwork="*res://networking/ClientNetwork.gd"
 ServerNetwork="*res://networking/ServerNetwork.gd"
 GameData="*res://networking/GameData.gd"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
 
 [rendering]
 

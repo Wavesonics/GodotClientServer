@@ -6,14 +6,11 @@ func _ready():
 	print("Application started")
 	if OS.has_feature("server"):
 		print("Is server")
-		get_tree().change_scene("res://server/Server.tscn")
-	elif OS.has_feature("2d"):
-		print("Is client: 2d")
-		get_tree().change_scene("res://clients/2d/Client2d.tscn")
-	elif OS.has_feature("3d"):
-		print("Is client: 3d")
-		get_tree().change_scene("res://clients/3d/Client3d.tscn")
+		get_tree().change_scene("res://server/GameServer.tscn")
+	elif OS.has_feature("client"):
+		print("Is client")
+		get_tree().change_scene("res://client/GameClient.tscn")
 	else:
 		print("Could not detect application type! Defaulting to client.")
-		#get_tree().change_scene("res://clients/2d/Client2d.tscn")
-		get_tree().change_scene("res://server/Server.tscn")
+		get_tree().change_scene("res://client/GameClient.tscn")
+		#get_tree().change_scene("res://server/GameServer.tscn")

@@ -1,5 +1,7 @@
 extends "BaseNetwork.gd"
 
+signal create_player
+
 var playerName: String
 
 func join_game(serverIp: String, playerName: String) -> bool:
@@ -20,15 +22,19 @@ func join_game(serverIp: String, playerName: String) -> bool:
 func on_connected_to_server():
 	print("Connected to server.")
 	var playerId = get_tree().get_network_unique_id()
-	GameData.add_player(playerId, playerName) # Add your self
-	self.broadcast_register_player(playerId, playerName)
+	
+	ServerNetwork.register_self(playerId, playerName)
+	#
+	#self.broadcast_register_player(playerId, playerName)
 
-func broadcast_register_player(id: int, playerName: String):
-	rpc("on_register_player", id, playerName)
+func broadcast_register_player(playerId: int, playerName: String):
+	rpc("on_register_player", playerId, playerName)
 
-func register_player(recipientId: int, id: int, playerName: String):
-	rpc_id(recipientId, "on_register_player", id, playerName)
+func register_player(recipientId: int, playerId: int, playerName: String):
+	rpc_id(recipientId, "on_register_player", playerId, playerName)
 
 remote func on_register_player(playerId: int, playerName: String):
+	print("on_register_player: " + str(playerId))
 	GameData.add_player(playerId, playerName)
+	emit_signal("create_player", playerId)
 	print("Total players: %d" % GameData.players.size())
