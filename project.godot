@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ServerTest"
+config/name="ClientServer"
 run/main_scene="res://entry/Entry.tscn"
 config/icon="res://icon.png"
 
@@ -29,6 +29,10 @@ GameData="*res://networking/GameData.gd"
 
 gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
+
+[layer_names]
+
+2d_physics/layer_1="players"
 
 [rendering]
 
