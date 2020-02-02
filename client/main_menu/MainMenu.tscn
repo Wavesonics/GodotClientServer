@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://client/main_menu/MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenTitle" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 39.0
+margin_right = 101.0
+margin_bottom = 53.0
+text = "Main Menu"
+
+[node name="ServerIpLabel" type="Label" parent="."]
+margin_left = 193.0
+margin_top = 179.0
+margin_right = 233.0
+margin_bottom = 193.0
+text = "Server IP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerIp" type="LineEdit" parent="ServerIpLabel"]
+margin_right = 243.0
+margin_bottom = 24.0
+text = "127.0.0.1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectButton" type="Button" parent="."]
+margin_left = 375.0
+margin_top = 268.0
+margin_right = 439.0
+margin_bottom = 288.0
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]

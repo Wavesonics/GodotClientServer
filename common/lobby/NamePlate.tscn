@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="NamePlate" type="HBoxContainer"]
+anchor_right = 0.187
+anchor_bottom = 0.083
+margin_right = -0.488007
+margin_bottom = 0.199997
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_top = 18.0
+margin_right = 81.0
+margin_bottom = 32.0
+text = "Player Name"

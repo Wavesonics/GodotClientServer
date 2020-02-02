@@ -23,7 +23,7 @@ func on_connected_to_server():
 	print("Connected to server.")
 	var playerId = get_tree().get_network_unique_id()
 	
-	ServerNetwork.register_self(playerId, playerName)
+	ServerNetwork.register_self(playerId, self.playerName)
 	#
 	#self.broadcast_register_player(playerId, playerName)
 
@@ -34,6 +34,7 @@ func register_player(recipientId: int, playerId: int, playerName: String):
 	rpc_id(recipientId, "on_register_player", playerId, playerName)
 
 remote func on_register_player(playerId: int, playerName: String):
+	print(playerName)
 	print("on_register_player: " + str(playerId))
 	GameData.add_player(playerId, playerName)
 	emit_signal("create_player", playerId)
