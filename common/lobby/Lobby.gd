@@ -5,7 +5,7 @@ func _ready():
 	ClientNetwork.connect("remove_player", self, "remove_player")
 
 func create_player(playerId: int):
-	print("Creating player game object")
+	print("Creating player in lobby")
 	#var player = GameData.players[playerId]
 	var namePlateScene = preload("res://common/lobby/NamePlate.tscn")
 	

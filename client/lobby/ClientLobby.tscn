@@ -5,3 +5,14 @@
 
 [node name="Lobby" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="StartButton" type="Button" parent="." index="2"]
+margin_left = 772.0
+margin_top = 257.0
+margin_right = 855.0
+margin_bottom = 277.0
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
