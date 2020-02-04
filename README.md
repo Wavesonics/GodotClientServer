@@ -67,6 +67,6 @@ https://godotengine.org/download/server
 This will still load all of the graphical assets, so it will not be as slim in memory as it could possibly be in the two project approach.
 
 ## Misc
-This is shown working with a Lobby based game, but it could just as easily work with a join-in-progress type of game.
-
-Also I'm not completely happy with how I split up the Network classes (BaseNetwork, ClientNetwork, ServerNetwork). So I may actualy get rid of that.
+- This is shown working with a Lobby based game, but it could just as easily work with a join-in-progress type of game.
+- I'm not completely happy with how I split up the Network classes (BaseNetwork, ClientNetwork, ServerNetwork). So I may actualy get rid of that.
+- This is *NOT* Server authoratative. It could be in theory, but that would take more work.
