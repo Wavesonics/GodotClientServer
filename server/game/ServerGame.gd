@@ -3,6 +3,8 @@ extends "res://common/game/Game.gd"
 var unreadyPlayers := {}
 
 func _ready():
+	ClientNetwork.connect("remove_player", self, "remove_player")
+	
 	for playerId in GameData.players:
 		unreadyPlayers[playerId] = playerId
 
@@ -15,3 +17,9 @@ remote func on_client_ready(playerId):
 	if unreadyPlayers.empty():
 		print("Starting the game")
 		rpc("on_pre_configure_complete")
+
+
+func remove_player(playerId: int):
+	# If all players are gone, return to lobby
+	if GameData.players.empty():
+		get_tree().change_scene("res://server/lobby/ServerLobby.tscn")

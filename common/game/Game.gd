@@ -4,7 +4,14 @@ func _ready():
 	print("Entering game")
 	get_tree().paused = true
 	
+	ClientNetwork.connect("remove_player", self, "remove_player")
+	
 	pre_configure()
+
+
+func remove_player(playerId: int):
+	var playerNode = get_node(str(playerId))
+	playerNode.queue_free()
 
 
 func pre_configure():
@@ -22,6 +29,7 @@ func pre_configure():
 	if not get_tree().is_network_server():
 		# Report that this client is done
 		rpc_id(ServerNetwork.SERVER_ID, "on_client_ready", get_tree().get_network_unique_id())
+
 
 func spawn_player(playerId, order):
 	print("Creating player game object")

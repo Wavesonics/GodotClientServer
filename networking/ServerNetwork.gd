@@ -26,7 +26,17 @@ remote func on_register_self(playerId, playerName):
 			ClientNetwork.register_player(playerId, curPlayerId, player.name)
 
 
+func is_hosting() -> bool:
+	if get_tree().network_peer != null and get_tree().network_peer.get_connection_status() != NetworkedMultiplayerENet.ConnectionStatus.CONNECTION_DISCONNECTED:
+		return true
+	else:
+		return false
+
 func host_game() -> bool:
+	
+	# Clear out any old state
+	reset_network()
+	
 	var peer = NetworkedMultiplayerENet.new()
 	var result = peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	if result == OK:
