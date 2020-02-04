@@ -64,7 +64,7 @@ This means you can easily run the dedicated server on a headless Linux box.
 https://godotengine.org/download/server
 
 ## Down sides
-This will still load all of the graphical assets, so it will not be as slim in memory as it could possibly be in the two project approach.
+- This will still load all of the graphical assets, so it will not be as slim in memory as it could possibly be in the two project approach.
 
 ## Misc
 - This is shown working with a Lobby based game, but it could just as easily work with a join-in-progress type of game.
