@@ -1,9 +1,9 @@
 # GodotClientServer
-An example of how to setup a Client/Server architecture in Godot within a single project.
+**An example of how to setup a Client/Server architecture in Godot within a single project.**
 
-Once I've got the design to a place that's solid, I'd like to release this as a Project Template on the asset library, so it can be used as a starting point for any multiplayer project that doesn't want to be peer to peer.
+*Once I've got the design to a place that's solid, I'd like to release this as a Project Template on the asset library, so it can be used as a starting point for any multiplayer project that doesn't want to be peer to peer.*
 
-I'd love any feedback or suggestions for how to improve things.
+*I'd love any feedback or suggestions for how to improve things.*
 
 
 ## Why?
