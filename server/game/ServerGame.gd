@@ -22,4 +22,7 @@ remote func on_client_ready(playerId):
 func remove_player(playerId: int):
 	# If all players are gone, return to lobby
 	if GameData.players.empty():
+		print("All players disconnected, returning to lobby")
 		get_tree().change_scene("res://server/lobby/ServerLobby.tscn")
+	else:
+		print("Players remaining: %d" % GameData.players.size())
