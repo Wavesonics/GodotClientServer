@@ -6,12 +6,11 @@ func _ready():
 
 func _on_ConnectButton_pressed():
 	var ip := $ServerIpLabel/ServerIp.text as String
-	connect_to_server(ip)
+	var playerName := $PlayerNameLabel/PlayerName.text as String
+	connect_to_server(playerName, ip)
 
 
-func connect_to_server(serverIp: String):
-	var playerName = "Client Guy"
-	
+func connect_to_server(playerName: String, serverIp: String):
 	ClientNetwork.join_game(serverIp, playerName)
 
 

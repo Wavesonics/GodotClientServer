@@ -20,19 +20,14 @@ func join_game(serverIp: String, playerName: String) -> bool:
 	else:
 		return false
 
+
 func on_connected_to_server():
 	print("Connected to server.")
-	var playerId = get_tree().get_network_unique_id()
-	
-	ServerNetwork.register_self(playerId, self.localPlayerName)
-	#
-	#self.broadcast_register_player(playerId, playerName)
 
-func broadcast_register_player(playerId: int, playerName: String):
-	rpc("on_register_player", playerId, playerName)
 
 func register_player(recipientId: int, playerId: int, playerName: String):
 	rpc_id(recipientId, "on_register_player", playerId, playerName)
+
 
 remote func on_register_player(playerId: int, playerName: String):
 	print(playerName)
@@ -41,8 +36,10 @@ remote func on_register_player(playerId: int, playerName: String):
 	emit_signal("create_player", playerId)
 	print("Total players: %d" % GameData.players.size())
 
+
 func start_game():
 	rpc("on_start_game")
+
 
 remotesync func on_start_game():
 	emit_signal("start_game")

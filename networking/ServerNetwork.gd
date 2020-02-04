@@ -4,22 +4,27 @@ const SERVER_ID := 1
 
 func _player_connected(id):
 	print("Player connected: " + str(id))
-	
-	# Catch the new player up on who is already here
-	for playerId in GameData.players:
-		if playerId != id:
-			var player = GameData.players[playerId]
-			ClientNetwork.register_player(id, playerId, player.name)
+
 
 # Called by clients when they connect
-func register_self(playerId, playerName):
+func register_self(playerId: int, playerName: String):
 	rpc_id(SERVER_ID, "on_register_self", playerId, playerName)
 
+
 remote func on_register_self(playerId, playerName):
+	# Register this client with the server
 	ClientNetwork.on_register_player(playerId, playerName)
 	
+	# Register the new player with all existing clients
 	for curPlayerId in GameData.players:
 		ClientNetwork.register_player(curPlayerId, playerId, playerName)
+	
+	# Catch the new player up on who is already here
+	for curPlayerId in GameData.players:
+		if curPlayerId != playerId:
+			var player = GameData.players[curPlayerId]
+			ClientNetwork.register_player(playerId, curPlayerId, player.name)
+
 
 func host_game() -> bool:
 	var peer = NetworkedMultiplayerENet.new()

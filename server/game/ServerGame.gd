@@ -1,6 +1,6 @@
 extends "res://common/game/Game.gd"
 
-var unreadyPlayers = Dictionary()
+var unreadyPlayers := {}
 
 func _ready():
 	for playerId in GameData.players:

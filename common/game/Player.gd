@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const SPEED := 1.0
+const SPEED := 50.0
 
-puppet func network_update(position: Vector2):
-	self.position = position
+puppet func network_update(networkPosition: Vector2):
+	self.position = networkPosition
 
 func _physics_process(delta):
 	if is_network_master():

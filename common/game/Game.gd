@@ -9,9 +9,15 @@ func _ready():
 
 func pre_configure():
 	var order := 0
+	var sortedPlayers = []
 	for playerId in GameData.players:
+		sortedPlayers.push_back(playerId)
+	
+	sortedPlayers.sort()
+	
+	for playerId in sortedPlayers:
 		spawn_player(playerId, order)
-		++order
+		order += 1
 	
 	if not get_tree().is_network_server():
 		# Report that this client is done
@@ -19,8 +25,8 @@ func pre_configure():
 
 func spawn_player(playerId, order):
 	print("Creating player game object")
-	var player = GameData.players[playerId]
 	
+	var player = GameData.players[playerId]
 	var playerName = player[GameData.PLAYER_NAME]
 	
 	var scene = preload("res://common/game/Player.tscn")
@@ -29,9 +35,10 @@ func spawn_player(playerId, order):
 	node.set_network_master(playerId)
 	node.set_name(str(playerId))
 	
-	node.position.x = 100 * order
+	node.position.x = 100 * (order + 1)
 	node.position.y = 100
-	node.set_player_name(playerName)
+	
+	node.get_node("NameLabel").text = playerName
 	
 	add_child(node)
 

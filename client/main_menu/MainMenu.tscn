@@ -17,6 +17,23 @@ margin_right = 101.0
 margin_bottom = 53.0
 text = "Main Menu"
 
+[node name="PlayerNameLabel" type="Label" parent="."]
+margin_left = 193.0
+margin_top = 110.0
+margin_right = 265.0
+margin_bottom = 124.0
+text = "Player Name"
+
+[node name="PlayerName" type="LineEdit" parent="PlayerNameLabel"]
+margin_left = 1.0
+margin_top = 22.0
+margin_right = 242.0
+margin_bottom = 46.0
+text = "A Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ServerIpLabel" type="Label" parent="."]
 margin_left = 193.0
 margin_top = 179.0
@@ -28,8 +45,9 @@ __meta__ = {
 }
 
 [node name="ServerIp" type="LineEdit" parent="ServerIpLabel"]
+margin_top = 21.0
 margin_right = 243.0
-margin_bottom = 24.0
+margin_bottom = 45.0
 text = "127.0.0.1"
 __meta__ = {
 "_edit_use_anchors_": false
