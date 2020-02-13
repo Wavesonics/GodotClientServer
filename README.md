@@ -21,11 +21,11 @@ Importantly, the presence of these features can be queried at runtime:
 
 You probably see where this is going now.
 
-We can have two different features: "client" and "server"
+We can have two different export templates, and each has it's own custom feature: `client` for one, and `server` for the other.
 
 Our `Main Scene` will be a simple `Entry` scene that detects which feature is present, and then launches into a different Scene accordingly.
 
-The Client will launch into a main menu, and the Server will launch into a Lobby scene, where it will open a port and begin listening for clients.
+The Client will launch into a Main Menu, and the Server will launch into a Lobby scene, where it will open a port and begin listening for clients.
 
 
 # Project Structure
@@ -58,6 +58,14 @@ If this was for some real game, the server likely would be on a headless machine
 This means you can easily run the dedicated server on a headless Linux box.
 
 https://godotengine.org/download/server
+
+## Exporting the Linux Server
+In the **Export Project** dialog, click on the **Linux Server** preset. Then export the pack file, not the full Export Template.
+
+You can then run the dedicated server as such:
+```
+./Godot_v3.2-stable_linux_server.64 --main-pack Server.pck
+```
 
 ## Down sides
 - This will still load all of the graphical assets, so it will not be as slim in memory as it could possibly be in the two project approach.
