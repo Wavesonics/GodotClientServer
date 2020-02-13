@@ -1,9 +1,5 @@
 # GodotClientServer
-**An example of how to setup a Client/Server architecture in Godot within a single project.**
-
-*Once I've got the design to a place that's solid, I'd like to release this as a Project Template on the asset library, so it can be used as a starting point for any multiplayer project that doesn't want to be peer to peer.*
-
-*I'd love any feedback or suggestions for how to improve things.*
+**A project template for a Dedicated Server & Client within a single project.**
 
 
 ## Why?
@@ -69,4 +65,4 @@ https://godotengine.org/download/server
 ## Misc
 - This is shown working with a Lobby based game, but it could just as easily work with a join-in-progress type of game.
 - I'm not completely happy with how I split up the Network classes (BaseNetwork, ClientNetwork, ServerNetwork). So I may actualy get rid of that.
-- This is *NOT* Server authoratative. It could be in theory, but that would take more work.
+- This is *NOT* Server authoratative. It could be in theory, and that is one big advantage I see is that all of the game logic is already running on the server.
