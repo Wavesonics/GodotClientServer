@@ -11,7 +11,7 @@ func join_game(serverIp: String, playerName: String) -> bool:
 	self.localPlayerName = playerName
 	
 	var peer = NetworkedMultiplayerENet.new()
-	var result = peer.create_client(serverIp, SERVER_PORT)
+	var result = peer.create_client(serverIp, ServerNetwork.SERVER_PORT)
 	
 	if result == OK:
 		get_tree().set_network_peer(peer)

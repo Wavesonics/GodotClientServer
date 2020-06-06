@@ -2,9 +2,6 @@ extends Node
 
 signal remove_player
 
-const SERVER_PORT := 3000
-const MAX_PLAYERS := 15
-
 func _ready():
 	reset_network()
 	

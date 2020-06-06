@@ -1,6 +1,8 @@
-extends "BaseNetwork.gd"
+extends Node
 
 const SERVER_ID := 1
+const SERVER_PORT := 3000
+const MAX_PLAYERS := 15
 
 func _player_connected(id):
 	print("Player connected: " + str(id))
@@ -33,9 +35,7 @@ func is_hosting() -> bool:
 		return false
 
 func host_game() -> bool:
-	
-	# Clear out any old state
-	reset_network()
+	ClientNetwork.reset_network()
 	
 	var peer = NetworkedMultiplayerENet.new()
 	var result = peer.create_server(SERVER_PORT, MAX_PLAYERS)
